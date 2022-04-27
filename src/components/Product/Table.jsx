@@ -7,24 +7,21 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
 
 function createData(name, trackingId, date, status) {
   return { name, trackingId, date, status };
 }
 
 const rows = [
-  createData("Lasania Chiken Fri", 18908424, "2 March 2022", "Approved"),
+  createData("Product", 18908424, "2 March 2022", "Approved"),
   createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
   createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
   createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
   createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
   createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-  createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
-
   createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
   createData("Cupcake", 18908421, "2 March 2022", "Delivered"),
 ];
@@ -91,6 +88,9 @@ export default function BasicTable() {
             </TableBody>
           </Table>
         </TableContainer>
+        <Stack spacing={2}>
+          <Pagination count={10} color="primary" />
+        </Stack>
       </div>
   );
 }

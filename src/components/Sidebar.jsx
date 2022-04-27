@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
+// import '../../src/App.css'
 import Logo from "../imgs/logo.png";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
+import { useNavigate } from 'react-router-dom';
 import { SidebarData } from "../Data/Data";
+import Login from "../components/Login/Login"
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 
+let active=0;
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
-
+  const navigate = useNavigate();
   const [expanded, setExpaned] = useState(true)
+
+
+  const onChange = (index)=>{
+    switch(index) {
+      case 0:
+        navigate("/brand");
+       // setSelected(index)
+        break;
+      case 1:
+        navigate("/product");
+      
+        break;
+      default:
+        navigate("/brand");
+        
+        break;
+    }
+  }
 
   const sidebarVariants = {
     true: {
@@ -19,7 +41,6 @@ const Sidebar = () => {
       left : '-60%'
     }
   }
-  console.log(window.innerWidth)
   return (
     <>
       <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
@@ -33,7 +54,7 @@ const Sidebar = () => {
       <div className="logo">
         <img src={Logo} alt="logo" />
         <span>
-          Sh<span>o</span>ps
+         Trang admin
         </span>
       </div>
 
@@ -43,7 +64,7 @@ const Sidebar = () => {
             <div
               className={selected === index ? "menuItem active" : "menuItem"}
               key={index}
-              onClick={() => setSelected(index)}
+              onClick={() => onChange(index)}
             >
               <item.icon />
               <span>{item.heading}</span>

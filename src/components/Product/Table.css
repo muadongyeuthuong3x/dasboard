@@ -5,7 +5,6 @@
 .MuiTableRow-root.MuiTableRow-head > * {
   font-weight: bold !important;
 }
-
 .Table td,
 th {
   border: none !important;
